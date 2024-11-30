@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 ### GPU Requirements
 - Running the **main.py** script efficiently requires a GPU.
-- The script was tested on **Google Colab** with a **T4 GPU**. You can access the Colab notebook [here](link-to-colab).
+- The script was tested on **Google Colab** with a **T4 GPU**.
 
 ### 1. Navigate to the `Congestion_detection` Directory
 ```bash
