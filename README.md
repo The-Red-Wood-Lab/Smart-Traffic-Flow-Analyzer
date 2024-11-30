@@ -1,63 +1,94 @@
-# Traffic Flow Analyzer for Hacktoberfest 2024
+# Traffic Flow Analyzer
 
-The *Traffic Flow Analyzer* is a deep learning-powered tool designed for real-time monitoring and analysis of vehicle traffic. Leveraging advanced object detection models, this project detects vehicles, tracks movement, and provides key insights such as traffic density, speed estimation, and congestion hotspots. This tool is ideal for urban planners, transport authorities, and smart city enthusiasts aiming to improve traffic management and road safety.
+The **Traffic Flow Analyzer** is a deep learning-powered tool designed for real-time monitoring and analysis of vehicle traffic. Leveraging advanced object detection models, this project detects vehicles, tracks their movement, and provides key insights such as traffic density, speed estimation, and congestion hotspots. This tool is ideal for urban planners, transport authorities, and smart city enthusiasts aiming to improve traffic management and road safety.
 
-## ❇ Getting Started with Hacktoberfest
+---
 
-Hacktoberfest is an open-source celebration hosted by [DigitalOcean](https://hacktoberfest.com), encouraging contributions to projects like this. Follow the steps below to get started and make your contribution.
+## Features
+- Real-time vehicle detection and tracking.
+- Traffic density analysis and speed estimation.
+- Identification of congestion hotspots.
+- Scalable for various traffic scenarios.
 
-### Step 1: Fork the Repository
+---
 
-1. Fork this repository by clicking the "Fork" button on the top-right corner of this page.
-2. Clone the forked repository to your local machine:
+## Repository Structure
+- `Congestion_detection/`: Contains the main Python script for congestion detection.
+- `model/`: Stores the YOLO model weights and training scripts.
+- `train.py`: Script to train the YOLOv11_x object detection model.
+- `Dataset links.txt`: Provides links to traffic datasets and annotations.
 
-    bash
-    git clone https://github.com/{your-username}/Smart-Traffic-Flow-Analyzer.git
-    cd Smart-Traffic-Flow-Analyzer
-    
+---
 
-3. Add the original repository as a remote to keep your fork updated:
+## Setup Instructions
 
-    bash
-    git remote add upstream https://github.com/The-Red-Wood-Lab/Smart-Traffic-Flow-Analyzer.git
-    
+### 1. Clone the Repository
+```bash
+git clone https://github.com/The-Red-Wood-Lab/Smart-Traffic-Flow-Analyzer.git
+cd Smart-Traffic-Flow-Analyzer
+```
 
-4. Sync your fork with the upstream repository before making any changes:
+### 2. Install Dependencies
+Ensure Python 3.7+ is installed, then run:
+```bash
+pip install -r requirements.txt
+```
 
-    bash
-    git fetch upstream
-    git checkout main
-    git merge upstream/main
-    
+---
 
-## ❇ How to Contribute
+## Run the Detection
 
-We are focused on detecting traffic congestion in real-time or through image/video analysis. We encourage you to expand the functionality—your creativity and new features are welcome!
+### GPU Requirements
+- Running the **main.py** script efficiently requires a GPU.
+- The script was tested on **Google Colab** with a **T4 GPU**. You can access the Colab notebook [here](link-to-colab).
 
-To contribute:
+### 1. Navigate to the `Congestion_detection` Directory
+```bash
+cd Congestion_detection
+```
 
-1. Fork the repository and create a new branch:
+### 2. Run the Main Script
+```bash
+python main.py --weights path/to/weights.pt --input path/to/your_video.mp4 --output path/to/output_video.mp4
+```
 
-    bash
-    git checkout -b feature-branch
-    
+   **Arguments**:
+   - `--weights`: Path to the YOLO model weights (e.g., `model/yolo_11x_traffic.pt`).
+   - `--input`: Path to the input video for analysis.
+   - `--output`: Path to save the output video (default: `output_video.mp4`).
 
-2. Make your changes, such as adding a new feature, improving the model, or fixing a bug. Once done, commit your changes:
+### Example Usage
+```bash
+python main.py --weights model/yolo_11x_traffic.pt --input traffic_video.mp4 --output detected_output.mp4
+```
 
-    bash
-    git commit -m 'Add new feature'
-    
+---
+### Output Example
 
-3. Push your changes to your forked repository:
+The output video `output.mp4` is saved in the `Congestion_detection` folder. This video contains annotated frames highlighting detected congestion areas.
+## Training the Model
 
-    bash
-    git push origin feature-branch
-    
+### `train.py` Script
+The `train.py` script in the `model/` directory was used to train the **YOLOv11_x** object detection model.
 
-4. Open a [Pull Request](https://github.com/The-Red-Wood-Lab/Smart-Traffic-Flow-Analyzer/pulls) on the main repository, providing a clear description of the changes you've made.
+### Training Environment
+- The model was originally trained on **Kaggle** using **2x T4 GPUs**.
+- The dataset links are provided in the `Dataset links.txt` file for reference and reproducibility.
 
-5. Collaborate and discuss improvements with the community!
+### Key Training Details
+- The model is fine-tuned for vehicle detection in traffic scenarios.
+- Pre-trained weights and additional resources can be added to the repository for convenience.
 
-## 📂 Dataset
+---
 
-The Dataset links.txt file contains essential links to traffic footage and annotations used for training and testing the deep learning models. Make sure to download the dataset and use it for any traffic analysis-related contributions.
+## Dataset
+
+The [dataset](https://github.com/tsp1718/Smart-Traffic-Flow-Analyzer/blob/main/Dataset/dataset.txt) file contains essential links to traffic footage and annotations used for training and testing the deep learning models. Ensure you download and use these datasets for further analysis or contributions.
+
+---
+
+### Additional Tips
+- **Google Colab**: If you plan to run the project on Colab, ensure you enable GPU in the runtime settings for optimal performance.
+- **Custom Input**: Replace the `--input` path with your video file for personalized analysis.
+
+---
