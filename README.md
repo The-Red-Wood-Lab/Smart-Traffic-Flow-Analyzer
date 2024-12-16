@@ -1,14 +1,14 @@
 # Traffic Flow Analyzer
 
-The **Traffic Flow Analyzer** is a deep learning-powered tool designed for real-time monitoring and analysis of vehicle traffic. Leveraging advanced object detection models, this project detects vehicles, tracks their movement, and provides key insights such as traffic density, speed estimation, and congestion hotspots. This tool is ideal for urban planners, transport authorities, and smart city enthusiasts aiming to improve traffic management and road safety.
+The **Traffic Flow Analyzer** is a deep learning-powered tool designed for real-time monitoring and analysis of vehicle traffic. Leveraging the **YOLOv11x** object detection model, this project detects vehicles and tracks their movement using the **BoT-SORT** tracker. It estimates pixel-based speed for each detected vehicle using Euclidean distance between successive frames. The tool provides key insights such as the total number of vehicles, the count of each vehicle type/class, and identifies congestion hotspots based on vehicle density and average speed. This makes it an ideal solution for urban planners, transport authorities, and smart city enthusiasts focused on improving traffic management and road safety.
 
 ---
 
 ## Features
-- Real-time vehicle detection and tracking.
-- Traffic density analysis and speed estimation.
-- Identification of congestion hotspots.
-- Scalable for various traffic scenarios.
+- Real-time vehicle detection and tracking using **YOLOv11x** and **BoT-SORT**.
+- Pixel-based speed estimation for each detected vehicle using Euclidean distance.
+- Insights on total vehicle count, vehicle counts per class, and congestion hotspots.
+- Congestion status determined based on vehicle density and average speed.
 
 ---
 
@@ -73,7 +73,7 @@ The `train.py` script in the `model/` directory was used to train the **YOLOv11_
 
 ### Training Environment
 - The model was originally trained on **Kaggle** using **2x T4 GPUs**.
-- The dataset links are provided in the `Dataset links.txt` file for reference and reproducibility.
+- The dataset links are provided in the `dataset.txt` file for reference and reproducibility.
 
 ### Key Training Details
 - The model is fine-tuned for vehicle detection in traffic scenarios.
@@ -90,5 +90,7 @@ The [dataset](https://github.com/tsp1718/Smart-Traffic-Flow-Analyzer/blob/main/D
 ### Additional Tips
 - **Google Colab**: If you plan to run the project on Colab, ensure you enable GPU in the runtime settings for optimal performance.
 - **Custom Input**: Replace the `--input` path with your video file for personalized analysis.
+- **Kaggle**: Alternatively, you can run the project on Kaggle. The notebook is optimized for use on Kaggle Kernels, where you can take advantage of Kaggle's free GPU resources.
+
 
 ---
