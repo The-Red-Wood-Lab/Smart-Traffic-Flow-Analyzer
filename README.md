@@ -73,7 +73,7 @@ The `train.py` script in the `model/` directory was used to train the **YOLOv11_
 
 ### Training Environment
 - The model was originally trained on **Kaggle** using **2x T4 GPUs**.
-- The dataset links are provided in the `Dataset links.txt` file for reference and reproducibility.
+- The dataset links are provided in the `dataset.txt` file for reference and reproducibility.
 
 ### Key Training Details
 - The model is fine-tuned for vehicle detection in traffic scenarios.
